@@ -1,0 +1,55 @@
+// 自定义加载问卷数据hook
+
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import { ResDataType } from "../services/ajax"
+import { getQuestionServe } from "../services/question"
+// 引入useRequest三方hook 用于管理状态
+import { useRequest } from "ahooks"
+
+function useLoadQuestionData() {
+    // // 解析路由参数
+    // const {id=''} = useParams()
+    // // 记录当前组件加载状态
+    // const [loading,setLoading] = useState(true)
+    // // 记录当前问卷信息
+    // const [questionData,setQuestionData] = useState<ResDataType>()
+
+    // // 当组件渲染时
+    // // 获取对应问卷信息
+    // useEffect(()=>{
+    //     // 由于useEffect的回调方法不能直接调用异步函数
+    //     // => 需要封装一下
+    //     async function fn() {
+    //         // 调用获取单个问卷信息方法
+    //        const data =await getQuestionServe(id)
+    //        // 保存当前问卷信息
+    //        setQuestionData(data)
+    //        //  更新加载状态
+    //        setLoading(false)
+    //     //    console.log('当前问卷信息:',data);
+    //     }
+    //     fn()
+    // },[])
+
+    // // 返回加载状态以及问卷数据
+    // return {
+    //     loading,questionData
+    // }
+
+    // 利用useRequest进行状态管理
+    // 解析路由参数
+    const {id=''} = useParams()
+    // 获取问卷数据方法
+    async function load() {
+        const data =await getQuestionServe(id)
+        return data
+    }
+    // 状态管理
+    const {loading,data,error}=useRequest(load)
+
+    //返回
+    return {loading,data,error}
+}
+
+export default useLoadQuestionData

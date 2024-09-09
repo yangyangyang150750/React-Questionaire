@@ -1,0 +1,36 @@
+.canvas{
+    min-height: 100%;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+// 每个组件的样式
+.component-wrapper{
+    margin: 12px;
+    border: 1px solid #fff;
+    padding: 12px;
+    border-radius: 3px;
+
+    // 鼠标悬浮样式
+    &:hover{
+        border-color: #d9d9d9;
+    }
+}
+
+//
+.component {
+    // 屏蔽鼠标行为 使得组件无法被鼠标点击
+    pointer-events: none;
+}
+
+// 定义组件锁定时的样式
+.Locked{
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+// 定义组件选中时的样式
+.selected{
+    // ！important 表明当前样式有最高优先级
+    border-color: #1890ff !important;
+}

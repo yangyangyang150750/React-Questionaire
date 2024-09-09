@@ -1,0 +1,41 @@
+// scss module 命名不会重复
+.container{
+    margin-bottom: 20px;
+    padding: 12px;
+    border-radius: 3px;
+    background-color: #fff;
+
+    // &表示当前元素
+    &:hover{
+        box-shadow: 0 4px 10px #e8e8e8;
+    }
+}
+
+.title{
+    display: flex;
+
+    .right{
+        flex:1;
+        text-align: right;
+    }
+    .left{
+        flex: 1;
+        font-size: 12px;
+    }
+}
+
+.button-container {
+    display: flex;
+
+    .left{
+        flex: 1;
+    }
+    .right{
+        flex:1;
+        text-align: right;
+
+        button{
+            color: #999;
+        }
+    }
+}

@@ -1,0 +1,5 @@
+# nodejs服务和mockjs使用总结
+
+1、使用mockjs的Random能力
+2、定义nodejs代码结构 考虑多模块的扩展性
+3、刻意延时1s 模拟网络加载效果
