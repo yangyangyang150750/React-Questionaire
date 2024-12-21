@@ -26,7 +26,7 @@ const Layers: FC = () => {
   function handleTitleClick(fe_id: string) {
     // 获取当前组件配置
     const curComp = componentList.find(c => c.fe_id === fe_id)
-    
+
     // 若当前组件配置存在 并且为隐藏状态
     if (curComp && curComp.isHidden) {
       message.info('不能选中隐藏的组件')

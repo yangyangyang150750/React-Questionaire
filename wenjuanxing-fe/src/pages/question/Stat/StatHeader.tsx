@@ -10,7 +10,9 @@ import styles from './StatHeader.module.scss'
 const { Title } = Typography
 
 const StatHeader: FC = () => {
+  // 定义导航
   const nav = useNavigate()
+  // 获取当前路由动态参数
   const { id } = useParams()
 
   const { title, isPublished } = useGetPageInfo()

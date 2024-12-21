@@ -48,7 +48,6 @@ export const QuestionCheckBox:FC<PropsType>=({fe_id,props})=>{
             // 切换为已选
             setSelectedValues((selectedValues)=>selectedValues.concat(value))
         }
-        console.log(selectedValues);
     }
     return<>
         <p>{title}</p>

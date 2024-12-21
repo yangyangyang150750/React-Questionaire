@@ -26,6 +26,7 @@
     "@nestjs/jwt": "^10.2.0",
     "@nestjs/mongoose": "^10.0.10",
     "@nestjs/platform-express": "^10.0.0",
+    "immer": "^10.1.1",
     "mongoose": "^8.5.4",
     "nanoid": "^3.3.7",
     "reflect-metadata": "^0.2.0",

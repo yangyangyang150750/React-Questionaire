@@ -69,7 +69,8 @@ export class QuestionService {
 
     // 定义删除某id对应数据方法
     async delete(id:string,author:string){
-        // 根据传入的问卷id 以及 用户名删除对应问卷 
+        // 根据传入的问卷id 以及 用户名
+        // 删除对应问卷 
         const res = await this.questionModal.findOneAndDelete({
             _id:id,
             author,

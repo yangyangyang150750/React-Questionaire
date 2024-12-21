@@ -1,7 +1,7 @@
-
+/* eslint-disable prettier/prettier */
 // commonJS的导出语法
-module.exports={
-    webpack: {
+module.exports = {
+  webpack: {
     configure(webpackConfig) {
       if (webpackConfig.mode === 'production') {
         // 抽离公共代码，只在生产环境
@@ -32,16 +32,16 @@ module.exports={
       return webpackConfig
     },
   },
-    // 开发环境下的server
-    devServer:{
-        // B端 前端
-        // 设置端口号
-        port:8000,
-        // 代理 
-        proxy:{ 
-            // 当匹配到/api开头的路由
-            // =>指向3001端口
-            '/api':'http://localhost:3005'
-        }
-    }
+  // 开发环境下的server
+  devServer: {
+    // B端 前端
+    // 设置端口号
+    port: 8000,
+    // 代理
+    proxy: {
+      // 当匹配到/api开头的路由
+      // =>指向3005端口
+      '/api': 'http://localhost:3005',
+    },
+  },
 }

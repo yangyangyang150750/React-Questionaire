@@ -1,35 +1,25 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
-import Component from '../../components/QuestionComponent/QuestionCheckbox/Component';
+import React from 'react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-const meta = {
+import Component from '../../components/QuestionComponents/QuestionCheckbox/Component'
+
+export default {
   title: 'Question/QuestionCheckbox',
-  component:Component,
-} satisfies Meta<typeof Component>;
-// ts中 typeof 返回的是类型
-// js中 typeof 返回的是字符串
+  component: Component,
+} as ComponentMeta<typeof Component>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+const Template: ComponentStory<typeof Component> = args => <Component {...args} />
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-// 默认属性
-export const Default: Story = {
-  args: {
-    
-  },
-};
+export const Default = Template.bind({})
+Default.args = {}
 
-// 设置属性
-export const SetProps: Story = {
-  args: {
-    title:'hello',
-    list:[
-      {value:'v1',text:'t1',checked:false},
-      {value:'v2',text:'t2',checked:true},
-      {value:'v3',text:'t3',checked:false},
-    ],
-    isVertical:true 
-  },
-};
-
+export const SetProps = Template.bind({})
+SetProps.args = {
+  title: 'hello',
+  list: [
+    { value: 'v1', text: 't1', checked: false },
+    { value: 'v2', text: 't2', checked: true },
+    { value: 'v3', text: 't3', checked: true },
+  ],
+  isVertical: true,
+}

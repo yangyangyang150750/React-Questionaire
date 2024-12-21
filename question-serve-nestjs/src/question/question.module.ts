@@ -7,7 +7,7 @@ import { Question, QuestionSchema } from '../schemas/question.schema';
 import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
-  // 导入question的schema模块
+  // 导入question的schema模块 并且同步至mongodb数据库
   imports: [
     MongooseModule.forFeature([
     {name: Question.name, schema: QuestionSchema }

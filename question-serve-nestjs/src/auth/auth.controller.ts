@@ -17,7 +17,7 @@ export class AuthController {
     async login(@Body() userInfo:CreateUserDto){
         // 解构
         const {username,password} = userInfo
-
+        
         return await this.authService.signIn(username,password)
     }
 

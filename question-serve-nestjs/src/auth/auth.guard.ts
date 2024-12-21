@@ -20,6 +20,7 @@ export class AuthGuard implements CanActivate {
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
     
+    // * * * * * 判断当前路由是否为Public * * * * * 
     // 判断当前是否为public
     const isPublic = this.reflector.getAllAndOverride<boolean>(IS_PUBLIC_KEY, [
       context.getHandler(),
@@ -27,23 +28,24 @@ export class AuthGuard implements CanActivate {
     ]);
 
     // 若为public 
-    // 则表明此时无需验证token 
+    // 则表明此路由为开放路由 此时无需验证token 
     if (isPublic) {
-      // 💡 See this condition
       return true;
     }
     
-    // request请求
+    // * * * * * 取出token * * * * * 
+    // 获取request请求对象
     const request = context.switchToHttp().getRequest();
     // 从请求头中 获取token
     const token = this.extractTokenFromHeader(request);
 
+    // * * * * * 判断token状态 * * * * * 
     // 判断本次请求是否有token
     if (!token) {
       // 若没有
       // => 抛出错误
-      console.log('本次请求无token！！！');
-      throw new UnauthorizedException();
+      console.log('本次请求无token');
+      throw new UnauthorizedException('未登录');
     }
 
     // 若本次请求携带了token
@@ -59,7 +61,7 @@ export class AuthGuard implements CanActivate {
       // 此处payload 即为userInfo
       request['user'] = payload;  
     } catch {
-      throw new UnauthorizedException('Token无效！');
+      throw new UnauthorizedException('Token无效');
     }
     return true;
   }

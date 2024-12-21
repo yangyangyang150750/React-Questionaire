@@ -39,7 +39,6 @@ test('传入属性', () => {
 
     // 选中的
     if (curVal === value) {
-      // eslint-disable-next-line jest/no-conditional-expect
       expect(radio.getAttribute('checked')).not.toBeNull()
     }
   }

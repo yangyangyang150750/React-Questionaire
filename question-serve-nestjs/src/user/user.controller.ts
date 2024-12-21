@@ -24,7 +24,7 @@ export class UserController {
 
     // 定义获取用户信息路由
     @Get('info')
-    // 重定向
+    // 因为此处需要验证token 所以需要进行重定向
     // http状态码 Get请求 
     // 301表示永久重定向 302表示临时重定向
     @Redirect('/api/auth/profile',302)

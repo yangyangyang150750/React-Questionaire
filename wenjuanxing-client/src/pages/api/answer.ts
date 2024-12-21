@@ -4,10 +4,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 // 改造数据
 function genAnswerInfo(reqBody:{[key:string]:any}) {
-    console.log('reqBody',reqBody);
-    
     const answerList:any[]=[]
-
     Object.keys(reqBody).forEach(key => {
         if (key==='questionId') {
             return
@@ -37,16 +34,12 @@ export default async function handler(
         })
     }
 
-
     // 将提交的表单数据 进行改造
     // 方便后端处理
     const answerInfo =  genAnswerInfo(req.body)
-    console.log('改造后的数据',answerInfo);
     try {
         // 提交数据至mock
         const resData = await postAnswer(answerInfo)
-
-        
         // 判断提交状态
         if (resData.errno==0) {
             // 提交成功

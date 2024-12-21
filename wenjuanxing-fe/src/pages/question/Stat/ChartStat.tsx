@@ -35,7 +35,7 @@ const ChartStat: FC<PropsType> = (props: PropsType) => {
 
   // 监听已选组件id的改变
   useEffect(() => {
-    // 一旦已选组件改变 
+    // 一旦已选组件改变
     // 重新获取统计数据
     if (selectedComponentId) run(id, selectedComponentId)
   }, [id, selectedComponentId])
@@ -52,7 +52,7 @@ const ChartStat: FC<PropsType> = (props: PropsType) => {
   return (
     <>
       <Title level={3}>图表统计</Title>
-      <div style={{textAlign:'center'}}>{genStatElem()}</div>
+      <div style={{ textAlign: 'center' }}>{genStatElem()}</div>
     </>
   )
 }

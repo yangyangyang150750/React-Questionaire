@@ -11,10 +11,9 @@
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.104",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "ahooks": "^3.8.1",
+    "ahooks": "^3.8.4",
     "antd": "^5.20.0",
     "axios": "^1.7.3",
     "classnames": "^2.5.1",
@@ -35,7 +34,6 @@
     "sass": "^1.77.8",
     "source-map-explorer": "^2.5.3",
     "styled-components": "^6.1.12",
-    "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -45,7 +43,9 @@
     "test": "craco test --watchAll=false",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "lint": "cross-env DEBUG=* cmd /c npx eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "format": "prettier --write \"src/**/*.+(js|ts|jsx|tsx)\""
   },
   "eslintConfig": {
     "extends": [
@@ -69,6 +69,7 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^1.9.0",
     "@craco/craco": "^7.1.0",
+    "@eslint/js": "^8.57.1",
     "@storybook/addon-essentials": "^8.2.9",
     "@storybook/addon-interactions": "^8.2.9",
     "@storybook/addon-links": "^8.2.9",
@@ -78,17 +79,29 @@
     "@storybook/react": "^8.2.9",
     "@storybook/react-webpack5": "^8.2.9",
     "@storybook/test": "^8.2.9",
+    "@storybook/testing-library": "^0.2.1",
     "@testing-library/jest-dom": "^6.5.0",
     "@types/lodash.clonedeep": "^4.5.9",
     "@types/mockjs": "^1.0.10",
+    "@types/node": "^22.10.2",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.0.0",
     "eslint-config": "^0.3.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-storybook": "^0.8.0",
+    "globals": "^15.14.0",
+    "husky": "^9.1.7",
     "jest": "^27.5.1",
-    "prettier": "^3.3.3",
+    "prettier": "^3.4.2",
     "prop-types": "^15.8.1",
     "storybook": "^8.2.9",
+    "typescript": "^4.9.5",
+    "typescript-eslint": "^7.2.0",
     "webpack": "^5.94.0"
   }
 }

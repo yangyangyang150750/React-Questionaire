@@ -6,6 +6,7 @@ import { HttpExceptionFilter } from './http-exception/http-exeption.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  
   // 设置路由全局前缀
   app.setGlobalPrefix('api')
 

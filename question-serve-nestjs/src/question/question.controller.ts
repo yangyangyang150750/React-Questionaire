@@ -26,8 +26,11 @@ export class QuestionController {
         @Query('keyword') keyword:string,
         @Query('page') page:number,
         @Query('pageSize') pageSize:number,
+        // 获取isStar查询参数 可用于标星问卷页面处理
         @Query('isStar') isStar:boolean=false ,
+        // 获取isDeleted查询参数 可用于回收站页面处理
         @Query('isDeleted') isDeleted:boolean=false,
+        // 获取request请求对象 取出用户名
         @Request() req
     ){
         // 解构
@@ -49,6 +52,8 @@ export class QuestionController {
             isStar,
             isDeleted,
             author:username})
+        
+        // 返回问卷列表以及总数
         return {
             list,
             count,
@@ -104,7 +109,9 @@ export class QuestionController {
         @Request() req
     ){
         // 解构
+        // 获取用户名
         const {username} = req.user
+        // 获取问卷id数组
         const {ids=[]}=body
         return this.questionService.deleteMany(ids,username)
     }

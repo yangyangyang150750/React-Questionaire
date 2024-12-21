@@ -1,14 +1,19 @@
 {
-  "cSpell.words": [
-    "antd",
-    "clonedeep",
-    "componentlib",
-    "craco",
-    "downarrow",
-    "Immer",
-    "mockjs",
-    "Paragragh",
-    "reduxjs",
-    "uparrow"
-  ]
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "cSpell.words": [
+        "ahooks",
+        "antd",
+        "Appstore",
+        "clonedeep",
+        "craco",
+        "downarrow",
+        "immer",
+        "mockjs",
+        "Popconfirm",
+        "qrcode",
+        "reduxjs",
+        "uparrow"
+    ]
 }

@@ -11,7 +11,7 @@ const StatComponent: FC<QuestionRadioStatPropsType> = ({ stat = [] }) => {
   // count 求和
   const sum = useMemo(() => {
     let s = 0
-    stat.forEach((i:any) => (s += i.count))
+    stat.forEach((i: any) => (s += i.count))
     return s
   }, [stat])
 

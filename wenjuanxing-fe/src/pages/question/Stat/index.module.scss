@@ -1,8 +1,10 @@
 .container{
     display: flex;
+    // 设置主轴分析为列
     flex-direction: column;
     min-height: 100vh;
     background-color: #f0f2f5;
+    
 }
 
 .content-wrapper{
@@ -17,6 +19,7 @@
     .left{
         width: 350px;
         margin-right: 24px;
+        overflow: hidden;
     }
 
     .main{

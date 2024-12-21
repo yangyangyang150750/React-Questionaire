@@ -17,7 +17,6 @@ export class AnswerService {
             // 若没有
             return new HttpException('缺少问卷id',HttpStatus.BAD_REQUEST)
         }
-        console.log('answerInfo',answerInfo);
         answerInfo.answerList=answerInfo.answerList.map(answer => {
             const{fe_id,value}=answer
             const valueArr=value.split(',')
@@ -26,26 +25,23 @@ export class AnswerService {
                 value:valueArr
             }
         });
-        console.log('answerInfo.answerList',answerInfo.answerList);
-        
-        console.log('new-answerInfo',answerInfo);
         const answer = new this.answerModal({
             questionId:answerInfo.questionId,
             answerList:answerInfo.answerList
         })
-        console.log('answer',answer);
         return await answer.save()
     }
 
     // 定义获取答卷总数方法
     async count(questionId:string){
+        // 判断是否传入对应问卷id
         if (!questionId) {
             return 0
         }
         return await this.answerModal.countDocuments({questionId})
     }
 
-    // 定义查找所有数据的方法
+    // 定义查找答卷列表的方法
     async findAll(questionId:string,opt:{page:number,pageSize:number}){
         if (!questionId) {
             return []
@@ -56,7 +52,7 @@ export class AnswerService {
         const list= await this.answerModal
         .find({questionId}) // 查找满足条件数据
         .skip((page-1)*pageSize) //分页
-        .limit(pageSize)    // 每页展示个数
+        .limit(pageSize)     // 每页展示个数
         .sort({_id:-1}) // 根据_id逆序排序
 
         return list
